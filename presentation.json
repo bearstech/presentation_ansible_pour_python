@@ -1,0 +1,10 @@
+{
+    "title": "Ansible pour les Pythonistes",
+    "theme": "memories",
+    "duration": 20,
+    "sections": {
+        "1_main": "♨︎♨︎",
+        "2_provisioning": "Provisioning",
+        "3_ansible": "Ansible"
+    }
+}

@@ -1,0 +1,60 @@
+---
+ - hosts: all
+   sudo: yes
+
+   vars:
+      domain: toto.local
+
+   tasks:
+    - name: Ansible needs some packages
+      apt: pkg={{ item }}
+      with_items:
+          - python-pycurl
+    - name: debian backport
+      apt_repository: repo='deb http://ftp.fr.debian.org/debian wheezy-backports main' state=present
+    - name: refresh repository
+      apt: cache_valid_time=3600
+           update_cache=yes
+
+    - name: A user for iPython
+      user: name=ipython
+    - name: iPython needs some packages
+      apt: pkg={{ item }}
+      with_items:
+          - python-virtualenv
+          - python-dev
+          - supervisor
+          - libzmq3-dev
+    - name: ipython requirements
+      copy: src=requirements.txt dest=/home/ipython/requirements.txt
+    - name: installing ipython
+      pip: chdir=/home/ipython
+           requirements=requirements.txt
+           virtualenv=/home/ipython
+
+    - name: iPython supervisor conf
+      template: src=ipython.supervisord.conf.j2 dest=/etc/supervisor/conf.d/ipython.conf
+      notify: reload supervisor
+    - name: ensure ipython is started
+      supervisorctl: name=ipython state=started
+
+    - name: install special version of Nginx
+      apt: pkg=nginx
+           default_release=wheezy-backports
+           state=present
+    - name: Log folder for iPython nginx vhost
+      file: state=directory path=/var/log/nginx/{{ domain }} owner=www-data
+    - name: iPython vhost Nginx available
+      template: src=ipython.nginx.j2 dest=/etc/nginx/sites-available/ipython
+      notify: restart nginx
+    - name: iPython vhost Nginx enabled
+      file: state=link src=/etc/nginx/sites-available/ipython dest=/etc/nginx/sites-enabled/ipython
+      notify: restart nginx
+    - name: Nginx is started
+      service: name=nginx state=started
+
+   handlers:
+    - name: reload supervisor
+      command: supervisorctl reload
+    - name: restart nginx
+      service: name=nginx state=restarted

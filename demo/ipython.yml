@@ -4,9 +4,7 @@
 
    vars:
       domain: toto.local
-      accounts:
-       - login: bob
-         password: sponge
+      password: sponge
 
    tasks:
     - name: Ansible needs some packages
@@ -50,6 +48,9 @@
       pip: chdir=/home/ipython
            requirements=requirements.txt
            virtualenv=/home/ipython
+    - name: Notebooks password
+      command: /home/ipython/bin/python -c "from IPython.lib import passwd; print passwd('{{ password }}', algorithm='sha512')"
+      register: notebooks_hash
     - name: Notebooks folder
       file: path=/home/ipython/notebooks state=directory owner=ipython
     - name: Profile folder
@@ -58,10 +59,12 @@
       template: src=ipython_notebook_config.py.j2
                 dest=/home/ipython/.config/ipython/profile_web/ipython_notebook_config.py
                 owner=ipython
+      notify: restart ipython
     - name: iPython config
       template: src=ipython_config.py.j2
                 dest=/home/ipython/.config/ipython/profile_web/ipython_config.py
                 owner=ipython
+      notify: restart ipython
 
     - name: supervisor is startd
       service: name=supervisor state=started

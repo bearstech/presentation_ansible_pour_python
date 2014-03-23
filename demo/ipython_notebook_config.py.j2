@@ -99,7 +99,7 @@ c.NotebookApp.port = 8888
 #   from IPython.lib import passwd; passwd()
 # 
 # The string should be of the form type:salt:hashed-password.
-# c.NotebookApp.password = u''
+c.NotebookApp.password = u'{{ notebooks_hash.stdout }}'
 
 # The Logging format template
 # c.NotebookApp.log_format = '[%(name)s]%(highlevel)s %(message)s'

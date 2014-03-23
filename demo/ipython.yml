@@ -53,10 +53,14 @@
     - name: Notebooks folder
       file: path=/home/ipython/notebooks state=directory owner=ipython
     - name: Profile folder
-      file: path=/home/ipython/.ipython/profile_web state=directory owner=ipython
-    - name: iPython profile
-      template: src=ipython.web_profile.py.j2
-                dest=/home/ipython/.ipython/profile_web/ipython_config.py
+      command: sudo -u ipython /home/ipython/bin/ipython profile create web creates=/home/ipython/.ipython/profile_web
+    - name: iPython notebooks config
+      template: src=ipython_notebook_config.py.j2
+                dest=/home/ipython/.config/ipython/profile_web/ipython_notebook_config.py
+                owner=ipython
+    - name: iPython config
+      template: src=ipython_config.py.j2
+                dest=/home/ipython/.config/ipython/profile_web/ipython_config.py
                 owner=ipython
 
     - name: supervisor is startd

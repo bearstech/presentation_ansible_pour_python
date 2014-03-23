@@ -8,7 +8,7 @@
 !SLIDE
 # ANSIBLE EST EN PYTHON
 
-Il fait parti du top 10 Python sur Github.
+Il fait partie du top 10 Python sur Github.
 
 Le support est exemplaire.
 
@@ -19,7 +19,7 @@ Les pull requests sont appréciées.
 !SLIDE
 # Pas d'agents
 
-Un simple accés SSH, par clef ou mot de passe.
+Un simple accès SSH, par clef ou mot de passe.
 
 Il faut juste avoir un python qui traine sur le serveur.
 
@@ -35,13 +35,13 @@ Les gabarits sont du Jinja2.
 !SLIDE
 # Batteries fournies
 
-Un ensemble de module varié et concis couvre la majorité des besoins.
+Un ensemble de modules variés et concis couvre la majorité des besoins.
 
-Il est facile de créer des plugins et de tricher en shell.
+Il est facile de créer des plug-ins et de tricher en Shell.
 
 !SLIDE
 # Souple
 
-Un fichier pour décrire les machines (groupes, paramètres), un playbook suffisent à Ansible.
+Un fichier pour décrire les machines (groupe, paramètre), un playbook suffisent à Ansible.
 
 Il est possible de commencer petit, et de finalement déployer une cathédrale en bazar.

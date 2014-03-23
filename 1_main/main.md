@@ -4,7 +4,7 @@
 > Un serveur, ça va, c'est quand il y en a beaucoup que ça pose problème.
 
 !SLIDE
-#Application local
+#Application locale
 
 > Mon Plone, Mon Django, sur Ma machine
 
@@ -43,8 +43,8 @@ On ne compile pas python, mais…
 !SLIDE
 #Plus jamais seul
 
-Une application moderne utilise un ensemble de services, locals ou distants,
-qui doivent être paramétrés, et déployés sur différents cibles
+Une application moderne utilise un ensemble de services, locaux ou distants,
+qui doivent être paramétrés, et déployés sur différentes cibles
 (avec des paramètres spécifiques).
 
 !SLIDE
@@ -52,7 +52,7 @@ qui doivent être paramétrés, et déployés sur différents cibles
 
 Personne ne doit espérer poser son laptop sur une étagère dans une baie d'un datacenter.
 
-C'est tentant, récurant, mais non.
+C'est tentant, lancinant, mais non.
 
 Il faut pouvoir faire une installation systématique prévisible et reproductible.
 
@@ -61,14 +61,7 @@ Il faut pouvoir faire une installation systématique prévisible et reproductibl
 !SLIDE
 #Différentes cibles
 
-Le déploiement devra pouvoir se faire dans différent environement.
+Le déploiement devra pouvoir se faire dans différents environnements.
 
-Une VM local, le LXC d'un Jenkins, un serveur de preprod, de la prod…
-Pourquoi pas du Cloud? et puis finalement un autre Cloud!
-
-
-
-
-
-
-
+Une VM locale, le LXC d'un Jenkins, un serveur de preprod, de la prod…
+Pourquoi pas du Cloud? Et puis finalement un autre Cloud!

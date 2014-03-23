@@ -1,7 +1,7 @@
 !SLIDE
 # Provisioning
 
-Un outil de provisioning permet d'effectuer des taches sur un ensemble de serveur,
+Un outil de provisioning permet d'effectuer des tâches sur un ensemble de serveurs,
 à partir d'une recette, de paramètres et de cibles.
 
 !SLIDE

@@ -123,8 +123,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # chef-validator, unless you changed the configuration.
   #
   #   chef.validation_client_name = "ORGNAME-validator"
+  #
+  # Quick fix for ansible 1.5.3
+  config.vm.provision :shell, inline: <<SCRIPT
+if [ ! -d /usr/share/python-apt ]
+then
+   sudo apt-get update && sudo apt-get install python-apt;
+fi
+SCRIPT
   config.vm.provision "ansible" do |ansible|
-    ansible.verbose = false
+    ansible.verbose = true
     ansible.playbook = "ipython.yml"
   end
 end

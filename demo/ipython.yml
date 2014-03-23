@@ -4,12 +4,16 @@
 
    vars:
       domain: toto.local
+      accounts:
+       - login: bob
+         password: sponge
 
    tasks:
     - name: Ansible needs some packages
       apt: pkg={{ item }}
       with_items:
           - python-pycurl
+          - python-passlib
     - name: debian backport
       apt_repository: repo='deb http://ftp.fr.debian.org/debian wheezy-backports main' state=present
     - name: refresh repository
@@ -25,13 +29,29 @@
           - python-dev
           - supervisor
           - libzmq3-dev
+          - libfreetype6-dev
+          - libpng12-dev
+          # Scipy
+          - gfortran
+          - libblas-dev
+          - liblapack-dev
     - name: ipython requirements
       copy: src=requirements.txt dest=/home/ipython/requirements.txt
     - name: installing ipython
       pip: chdir=/home/ipython
            requirements=requirements.txt
            virtualenv=/home/ipython
+    - name: Notebooks folder
+      file: path=/home/ipython/notebooks state=directory owner=ipython
+    - name: Profile folder
+      file: path=/home/ipython/.ipython/profile_web state=directory owner=ipython
+    - name: iPython profile
+      template: src=ipython.web_profile.py.j2
+                dest=/home/ipython/.ipython/profile_web/ipython_config.py
+                owner=ipython
 
+    - name: supervisor is startd
+      service: name=supervisor state=started
     - name: iPython supervisor conf
       template: src=ipython.supervisord.conf.j2 dest=/etc/supervisor/conf.d/ipython.conf
       notify: reload supervisor

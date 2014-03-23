@@ -128,7 +128,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, inline: <<SCRIPT
 if [ ! -d /usr/share/python-apt ]
 then
-   sudo apt-get update && sudo apt-get install python-apt;
+   sudo apt-get update && sudo apt-get install --quiet --assume-yes python-apt;
 fi
 SCRIPT
   config.vm.provision "ansible" do |ansible|

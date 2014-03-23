@@ -1,7 +1,8 @@
 !SLIDE
 #Des serveurs
 
-> Un serveur, ça va, c'est quand il y en a beaucoup que ça pose problème.
+> Un serveur, ça va. C'est quand il y en a beaucoup qu'il y a des problèmes.
+
 
 !SLIDE
 #Application locale

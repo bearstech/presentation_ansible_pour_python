@@ -42,6 +42,6 @@ Il est facile de créer des plug-ins et de tricher en Shell.
 !SLIDE
 # Souple
 
-Un fichier pour décrire les machines (groupe, paramètre), un playbook suffisent à Ansible.
+Un fichier pour décrire les machines (groupes, paramètres), un playbook suffisent à Ansible.
 
 Il est possible de commencer petit, et de finalement déployer une cathédrale en bazar.

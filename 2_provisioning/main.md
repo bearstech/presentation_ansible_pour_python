@@ -19,4 +19,4 @@ Juju, Cobbler, je ne connais pas.
  * *Buildout* ne m'aime pas.
  * Je n'aime pas *Fabric* et encore moins *Fabtools*.
  * *Salt* mange du serveur par paquets de 100.
- * *Anisble* aime tout le monde, et il est poli.
+ * *Ansible* aime tout le monde, et il est poli.

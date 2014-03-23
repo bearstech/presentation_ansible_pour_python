@@ -13,7 +13,6 @@
       apt: pkg={{ item }}
       with_items:
           - python-pycurl
-          - python-passlib
     - name: debian backport
       apt_repository: repo='deb http://ftp.fr.debian.org/debian wheezy-backports main' state=present
     - name: refresh repository

@@ -63,9 +63,9 @@
       service: name=supervisor state=started
     - name: iPython supervisor conf
       template: src=ipython.supervisord.conf.j2 dest=/etc/supervisor/conf.d/ipython.conf
-      notify: reload supervisor
-    - name: ensure ipython is started
-      supervisorctl: name=ipython state=started
+      notify: restart ipython
+    - name: reload supervisor
+      command: supervisorctl reload
 
     - name: install special version of Nginx
       apt: pkg=nginx
@@ -83,7 +83,7 @@
       service: name=nginx state=started
 
    handlers:
-    - name: reload supervisor
-      command: supervisorctl reload
+    - name: restart ipython
+      supervisorctl: name=ipython state=restarted
     - name: restart nginx
       service: name=nginx state=restarted

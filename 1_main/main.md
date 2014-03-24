@@ -3,6 +3,10 @@
 
 > Un serveur, ça va. C'est quand il y en a beaucoup qu'il y a des problèmes.
 
+!SLIDE
+
+![Un nouvel outil](debutant.jpg)
+> Les premiers essais avec Ansible se passe plutot bien.
 
 !SLIDE
 #Application locale

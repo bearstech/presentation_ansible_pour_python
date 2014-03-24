@@ -4,7 +4,7 @@
     "duration": 20,
     "sections": {
         "0_presentation": "",
-        "1_main": "♨︎♨︎",
+        "1_main": "♨︎",
         "2_provisioning": "Provisioning",
         "3_ansible": "Ansible"
     }

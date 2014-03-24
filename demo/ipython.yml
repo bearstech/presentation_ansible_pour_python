@@ -32,6 +32,7 @@
           - gfortran
           - libblas-dev
           - liblapack-dev
+          - libatlas-dev
     - name: Modern pip
       pip: chdir=/home/ipython
            virtualenv=/home/ipython

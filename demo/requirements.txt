@@ -9,3 +9,4 @@ uwsgi
 pyzmq
 jinja2
 tornado
+pygments

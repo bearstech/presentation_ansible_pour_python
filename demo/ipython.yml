@@ -55,15 +55,16 @@
     - name: Notebooks folder
       file: path=/home/ipython/notebooks state=directory owner=ipython
     - name: Profile folder
-      command: sudo -u ipython /home/ipython/bin/ipython profile create web creates=/home/ipython/.ipython/profile_web
+      command: sudo -u ipython /home/ipython/bin/ipython profile create web
+               creates=/home/ipython/.ipython/profile_web/ipython_notebook_config.py
     - name: iPython notebooks config
       template: src=ipython_notebook_config.py.j2
-                dest=/home/ipython/.config/ipython/profile_web/ipython_notebook_config.py
+                dest=/home/ipython/.ipython/profile_web/ipython_notebook_config.py
                 owner=ipython
       notify: restart ipython
     - name: iPython config
       template: src=ipython_config.py.j2
-                dest=/home/ipython/.config/ipython/profile_web/ipython_config.py
+                dest=/home/ipython/.ipython/profile_web/ipython_config.py
                 owner=ipython
       notify: restart ipython
 

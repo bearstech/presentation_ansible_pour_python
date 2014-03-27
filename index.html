@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Ansible pour les Pythonistes</title>
+      <link rel="stylesheet" href="css/fonts.css">
+      <link rel="stylesheet" href="css/slideshow.css">
+      <link rel="stylesheet" href="css/theme.css">
+      <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/pygments/solarized.css">
+    <script src="js/prefixfree.min.js"></script>
+  </head>
+  <body data-duration="20">
+    <section>
+      <header class="slide">
+        <h1>Ansible pour les Pythonistes</h1>
+        <h2></h2>
+      </header>
+    </section>
+      <section>
+        <header class="slide">
+          <h1></h1>
+        </header>
+          <section class="slide ">
+            <h1>Mathieu Lecarme</h1>
+
+<h2>athoune</h2>
+
+<ul>
+<li>github</li>
+<li>twitter</li>
+<li>IRC #freenode</li>
+</ul>
+
+<p><a href="http://blog.bearstech.com">http://blog.bearstech.com</a></p>
+
+          </section>
+      </section>
+      <section>
+        <header class="slide">
+          <h1>♨︎</h1>
+        </header>
+          <section class="slide ">
+            <h1>Des serveurs</h1>
+
+<blockquote>
+<p>Un serveur, ça va. C'est quand il y en a beaucoup qu'il y a des problèmes.</p>
+</blockquote>
+
+          </section>
+          <section class="slide ">
+            <p><img src="debutant.jpg" alt="Un nouvel outil"></p>
+
+<blockquote>
+<p>Les premiers essais avec Ansible se passe plutot bien.</p>
+</blockquote>
+
+          </section>
+          <section class="slide ">
+            <h1>Application locale</h1>
+
+<blockquote>
+<p>Mon Plone, Mon Django, sur Ma machine</p>
+</blockquote>
+
+<p>So 2000.</p>
+
+<blockquote>
+<p>Dans Mon virtualenv</p>
+</blockquote>
+
+<p>so 2010.</p>
+
+          </section>
+          <section class="slide ">
+            <h1>Emballage</h1>
+
+<p>Pour un joli site web, il faut un Nginx pour l'emballer, servir directement les assets et compresser ce qu'il peut.</p>
+
+<p>Gunicorn ne DOIT PAS travailler tout nu, il lui faut un proxy qui bufferise, devant.</p>
+
+          </section>
+          <section class="slide ">
+            <h1>Des services</h1>
+
+<p>Une application utilise :</p>
+
+<ul>
+<li>Une base de données, relationnelle ou non</li>
+<li>Redis</li>
+<li>Elasticsearch</li>
+<li>…</li>
+</ul>
+
+          </section>
+          <section class="slide ">
+            <h1>Un build</h1>
+
+<p>On ne compile pas python, mais…</p>
+
+<ul>
+<li>Makefile</li>
+<li>Buildout</li>
+<li>Scons, waf, ou pire?</li>
+</ul>
+
+          </section>
+          <section class="slide ">
+            <h1>Plus jamais seul</h1>
+
+<p>Une application moderne utilise un ensemble de services, locaux ou distants,
+qui doivent être paramétrés, et déployés sur différentes cibles
+(avec des paramètres spécifiques).</p>
+
+          </section>
+          <section class="slide ">
+            <h1>Des recettes</h1>
+
+<p>Personne ne doit espérer poser son laptop sur une étagère dans une baie d'un datacenter.</p>
+
+<p>C'est tentant, lancinant, mais non.</p>
+
+<p>Il faut pouvoir faire une installation systématique prévisible et reproductible.</p>
+
+<p><strong>Une recette, des ingrédients, des invités.</strong></p>
+
+          </section>
+          <section class="slide ">
+            <h1>Différentes cibles</h1>
+
+<p>Le déploiement devra pouvoir se faire dans différents environnements.</p>
+
+<p>Une VM locale, le LXC d'un Jenkins, un serveur de preprod, de la prod…
+Pourquoi pas du Cloud? Et puis finalement un autre Cloud!</p>
+
+          </section>
+      </section>
+      <section>
+        <header class="slide">
+          <h1>Provisioning</h1>
+        </header>
+          <section class="slide ">
+            <h1>Provisioning</h1>
+
+<p>Un outil de provisioning permet d'effectuer des tâches sur un ensemble de serveurs,
+à partir d'une recette, de paramètres et de cibles.</p>
+
+          </section>
+          <section class="slide ">
+            <h1>Lequel</h1>
+
+<p>Il en existe beaucoup, mais tous sont différents.</p>
+
+<p>Puppet et Chef sont les stars, mais non.</p>
+
+<p>Juju, Cobbler, je ne connais pas.</p>
+
+          </section>
+          <section class="slide ">
+            <h2>En python?</h2>
+
+<ul>
+<li><em>Buildout</em> ne m'aime pas.</li>
+<li>Je n'aime pas <em>Fabric</em> et encore moins <em>Fabtools</em>.</li>
+<li><em>Salt</em> mange du serveur par paquets de 100.</li>
+<li><em>Ansible</em> aime tout le monde, et il est poli.</li>
+</ul>
+
+          </section>
+      </section>
+      <section>
+        <header class="slide">
+          <h1>Ansible</h1>
+        </header>
+          <section class="slide ">
+            <h1>Ansible est</h1>
+
+<ul>
+<li>Poli. Il n'utilise pas d'agent.</li>
+<li>Discret. Il ne paraphrase rien.</li>
+<li>Direct. La prise en main est rapide.</li>
+</ul>
+
+          </section>
+          <section class="slide ">
+            <h1>ANSIBLE EST EN PYTHON</h1>
+
+<p>Il fait partie du top 10 Python sur Github.</p>
+
+<p>Le support est exemplaire.</p>
+
+<p>Le code est propre.</p>
+
+<p>Les pull requests sont appréciées.</p>
+
+          </section>
+          <section class="slide ">
+            <h1>Pas d'agents</h1>
+
+<p>Un simple accès SSH, par clef ou mot de passe.</p>
+
+<p>Il faut juste avoir un python qui traine sur le serveur.</p>
+
+          </section>
+          <section class="slide ">
+            <h1>Pas de DSL</h1>
+
+<p>La syntaxe utilise du YAML avec des variables à la Jinja2.</p>
+
+<p>L'approche est déclarative, et privilégie la lecture.</p>
+
+<p>Les gabarits sont du Jinja2.</p>
+
+          </section>
+          <section class="slide ">
+            <h1>Batteries fournies</h1>
+
+<p>Un ensemble de modules variés et concis couvre la majorité des besoins.</p>
+
+<p>Il est facile de créer des plug-ins et de tricher en Shell.</p>
+
+          </section>
+          <section class="slide ">
+            <h1>Souple</h1>
+
+<p>Un fichier pour décrire les machines (groupes, paramètres), un playbook suffisent à Ansible.</p>
+
+<p>Il est possible de commencer petit, et de finalement déployer une cathédrale en bazar.</p>
+
+          </section>
+      </section>
+      <script src="js/prefixfree.min.js"></script>
+      <script src="js/slideshow.js"></script>
+    <script>slideshow = new SlideShow();</script>
+  </body>
+</html>
